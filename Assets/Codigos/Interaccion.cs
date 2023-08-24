@@ -23,4 +23,20 @@ public class Interaccion : MonoBehaviour
             salio.Invoke();
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            entro.Invoke();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            salio.Invoke();
+        }
+    }
 }

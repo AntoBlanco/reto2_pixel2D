@@ -36,8 +36,10 @@ public class MovimientoPersonaje : MonoBehaviour
 
         if (movimientoHorizontal > 0)
             transform.localScale = new Vector3(1, 1, 1);
+            //transform.localScale = new Vector2(1,1);
         else if (movimientoHorizontal < 0)
             transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector2(-1,1);
 
         animaciones.SetInteger("Salto", (int) cuerpoRigido.velocity.y);
         animaciones.SetBool("Piso", enElsuelo);
@@ -49,7 +51,6 @@ public class MovimientoPersonaje : MonoBehaviour
     void OnCollisionStay2D (Collision2D collision)
     {
         enElsuelo = collision.gameObject.CompareTag("Suelo");
-
         if (collision.gameObject.CompareTag("Morir"))
             Reinicio();
     }
